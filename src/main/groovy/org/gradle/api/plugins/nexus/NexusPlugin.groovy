@@ -57,7 +57,7 @@ class NexusPlugin implements Plugin<Project> {
     }
 
     private void configureSourcesJarTask(Project project) {
-        Jar sourcesJarTask = project.tasks.add(SOURCES_JAR_TASK_NAME, Jar)
+        Jar sourcesJarTask = project.tasks.create(SOURCES_JAR_TASK_NAME, Jar)
         sourcesJarTask.classifier = 'sources'
         sourcesJarTask.from project.sourceSets.main.allSource
     }

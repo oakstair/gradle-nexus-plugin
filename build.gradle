@@ -1,4 +1,5 @@
 apply plugin: 'groovy'
+apply plugin: 'eclipse'
 apply plugin: 'idea'
 apply plugin: 'maven'
 
@@ -6,14 +7,14 @@ def compatibilityVersion = 1.5
 sourceCompatibility = compatibilityVersion
 targetCompatibility = compatibilityVersion
 group = 'org.gradle.api.plugins'
-version = '0.2'
+version = '0.2.1'
 
 repositories {
     mavenCentral()
 }
 
 dependencies {
-    groovy localGroovy()
+    compile localGroovy()
     compile gradleApi()
 }
 
@@ -45,7 +46,7 @@ idea.project {
 }
 
 task wrapper(type: Wrapper) {
-    gradleVersion = '1.2'
+    gradleVersion = '1.6'
 }
 
 task sourcesJar(type: Jar) {
@@ -70,9 +71,9 @@ ext.pomConfiguration = {
     inceptionYear '2012'
 
     scm {
-        url 'https://github.com/bmuschko/gradle-nexus-plugin'
-        connection 'scm:https://bmuschko@github.com/bmuschko/gradle-nexus-plugin.git'
-        developerConnection 'scm:git://github.com/bmuschko/gradle-nexus-plugin.git'
+        url 'https://github.com/oakstair/gradle-nexus-plugin'
+        connection 'scm:https://oakstair@github.com/oakstair/gradle-nexus-plugin.git'
+        developerConnection 'scm:git://github.com/oakstair/gradle-nexus-plugin.git'
     }
 
     licenses {
@@ -88,6 +89,11 @@ ext.pomConfiguration = {
             id 'bmuschko'
             name 'Benjamin Muschko'
             email 'benjamin.muschko@gmail.com'
+        }
+        developer {
+            id 'oakstair'
+            name 'Gunnar Eketrapp'
+            email 'gunnar.eketrapp@gmail.com'
         }
     }
 }
